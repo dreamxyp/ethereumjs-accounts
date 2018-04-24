@@ -12,13 +12,13 @@
     </head>
     <body style="width: 75%; margin: 0px auto; padding-top: 200px;">
         <!-- the welcome HTML -->
-        <h1>ethereumjs-accounts</h1>
-        <p>Welcome to the ethereumjs-accounts demo. Here you can generate, encrypt, store, and remove Ethereum accounts in browser.</p>
+        <h1>happyucjs-accounts</h1>
+        <p>Welcome to the happyucjs-accounts demo. Here you can generate, encrypt, store, and remove HappyUC accounts in browser.</p>
         <br><br>
         
         <!-- account generator HTML -->
         <h2>Generate Account</h2>
-        <p>Here you can generate an Ethereum account in browser, optionally you can encrypt the account private and public keys with a passphrase using AES encryption.</p>
+        <p>Here you can generate an HappyUC account in browser, optionally you can encrypt the account private and public keys with a passphrase using AES encryption.</p>
         <input type="text" placeholder="passphrase" id="new_passphrase"> 
         <hr>
         <button id="new">Generate Account</button>
@@ -29,7 +29,7 @@
         
         <!-- get accounts HTML -->
         <h2>Get Accounts</h2>
-        <p>Here you can get an Ethereum account from browser storage. If the account uses encryption, provide the passphrase below. You can get all accounts by leaving the address field blank.</p>
+        <p>Here you can get an HappyUC account from browser storage. If the account uses encryption, provide the passphrase below. You can get all accounts by leaving the address field blank.</p>
         <input type="text" placeholder="address" id="get_address"> 
         <input type="text" placeholder="passphrase" id="get_passphrase"> 
         <hr>
@@ -42,7 +42,7 @@
         
         <!-- clear accounts HTML -->
         <h2>Clear Accounts</h2>
-        <p>Here you can clear all Ethereum accounts stored in browser storage.</p>
+        <p>Here you can clear all HappyUC accounts stored in browser storage.</p>
         <hr>
         <button id="clear">Clear Accounts</button>
         <br>
@@ -85,25 +85,25 @@
         
         <br><br>
         
-        <!-- some web3 HTML -->
-        <h2>Use with Web3</h2>
-        <p>First off, here are the accounts you have stored in geth: </p>
-        <p id="web3Accounts"></p>
+        <!-- some webu HTML -->
+        <h2>Use with Webu</h2>
+        <p>First off, here are the accounts you have stored in ghuc: </p>
+        <p id="webuAccounts"></p>
         
-        <p>Here you can use an account stored in browser to send a transaction with the web3.js object. This is an example use case where Accounts.extendWeb3 method is used to extend the web3.js object. Make sure you send Ether to the account you want to use. The value below will be converted to ether.</p>
-        <input type="text" placeholder="from address" id="web3_fromAddress"> 
-        <input type="text" placeholder="to address" id="web3_toAddress"> 
-        <input type="text" placeholder="value (e.g. 1 [ether])" id="web3_value">
+        <p>Here you can use an account stored in browser to send a transaction with the webu.js object. This is an example use case where Accounts.extendWebu method is used to extend the webu.js object. Make sure you send Huc to the account you want to use. The value below will be converted to huc.</p>
+        <input type="text" placeholder="from address" id="webu_fromAddress"> 
+        <input type="text" placeholder="to address" id="webu_toAddress"> 
+        <input type="text" placeholder="value (e.g. 1 [huc])" id="webu_value">
         <hr>
         <button id="send">Send Transaction</button>
         <br>
-        <pre id="web3_result"></pre>
+        <pre id="webu_result"></pre>
         
         <br><br>
         
-        <!-- ethereumjs-accounts JS -->
-        <script src="../dist/ethereumjs-accounts.js"></script>
-        <script src="web3.js"></script>
+        <!-- happyucjs-accounts JS -->
+        <script src="../dist/happyucjs-accounts.js"></script>
+        <script src="webu.js"></script>
         <script type="text/javascript">
             // Make alias of docuemtn.getElementById -> $
             function makeAlias(object, name) {
@@ -117,22 +117,22 @@
             // Make docuemtn.getElementById aliased by $
             $ = makeAlias(document, 'getElementById');
             
-            // Set web3 provider
-            web3.setProvider(new web3.providers.HttpProvider("http://localhost:8545/"));
+            // Set webu provider
+            webu.setProvider(new webu.providers.HttpProvider("http://localhost:8545/"));
             
             // Create Accounts Object
             var Accounts = new Accounts();
             
-            // Extend the web3 object
-            Accounts.extendWeb3();
+            // Extend the webu object
+            Accounts.extendWebu();
             Accounts.log = function(msg){console.log(msg);};
             
             console.log(Accounts.length);
             
             // When the window DOM loads
             window.onload = function () {
-                // Send ether to the account you want to use (for testing)
-                //web3.eth.sendTransaction({from: web3.eth.accounts[0], to: '0x6f801e7bfea263fa60a1ed1afcffd124f749ee79', value: web3.toWei(30, 'ether')}, function(err, result){console.log(err, result);});
+                // Send huc to the account you want to use (for testing)
+                //webu.huc.sendTransaction({from: webu.huc.accounts[0], to: '0x6f801e7bfea263fa60a1ed1afcffd124f749ee79', value: webu.toWei(30, 'huc')}, function(err, result){console.log(err, result);});
                 
                 // When 'Generate Account' is clicked
                 $("new").onclick = function() {
@@ -184,8 +184,8 @@
                     $("import_result").innerHTML = 'Exported accounts!';
                 };
                 
-                $('web3Accounts')
-                    .innerHTML = JSON.stringify(web3.eth.accounts);
+                $('webuAccounts')
+                    .innerHTML = JSON.stringify(webu.huc.accounts);
                 
                 var source = "" +
                     "contract test {\n" +
@@ -219,10 +219,10 @@
                     // hide create button
                     document.getElementById('multiplyResult').innerText = code;
                     // let's assume that coinbase is our account
-                    web3.eth.defaultAccount = web3.eth.coinbase;
+                    webu.huc.defaultAccount = webu.huc.coinbase;
                     // create contract
                     document.getElementById('multiplyResult').innerText = "transaction sent, waiting for confirmation";
-                    web3.eth.contract(abi).new({from: $('multiply_fromAddress').value, data: code, gas: 300000}, function (err, contract) {
+                    webu.huc.contract(abi).new({from: $('multiply_fromAddress').value, data: code, gas: 300000}, function (err, contract) {
                         console.log(err, contract);
                         
                         if(err) {
@@ -237,7 +237,7 @@
                 };
                     
                 function callExampleContract() {
-                    // this should be generated by ethereum
+                    // this should be generated by happyuc
                     var param = parseInt(document.getElementById('multiplyValue').value);
                     // call the contract
                     var res = myContract.multiply(param);
@@ -256,19 +256,19 @@
 
                 // When 'Send Transaciton' is clicked
                 $("send").onclick = function() {
-                    $("web3_result").innerHTML = 'Processing transaction...';                           
+                    $("webu_result").innerHTML = 'Processing transaction...';                           
                     
-                    web3.eth.getBalance(             
+                    webu.huc.getBalance(             
                         '0x16269a6af79fe24b595e458586ba1f54c24d3c80'
                     , function(err, result){
                         if(!err)
-                            $("web3_result").innerHTML = 'Account has a balance of ' + String(web3.fromWei(result, 'ether')) + ' ether...';
+                            $("webu_result").innerHTML = 'Account has a balance of ' + String(webu.fromWei(result, 'huc')) + ' huc...';
                     });
                     
-                    web3.eth.sendTransaction({
-                        from: $("web3_fromAddress").value
-                        , to: $("web3_toAddress").value
-                        , value: web3.toWei($("web3_value").value, 'ether')
+                    webu.huc.sendTransaction({
+                        from: $("webu_fromAddress").value
+                        , to: $("webu_toAddress").value
+                        , value: webu.toWei($("webu_value").value, 'huc')
                         , gas: 300000
                     }, function(err, result){
                         var html = '';
@@ -278,7 +278,7 @@
                         else
                             html = 'The transaction went through succesfully, hash: ' + String(result);
                         
-                        $("web3_result").innerHTML = html;
+                        $("webu_result").innerHTML = html;
                     });
                 };
             };

@@ -1,32 +1,32 @@
 /**
-ethereumjs-accounts - A suite for managing Ethereum accounts in browser.
+happyucjs-accounts - A suite for managing HappyUC accounts in browser.
 
-Welcome to ethereumjs-accounts. Generate, encrypt, manage, export and remove Ethereum accounts and store them in your browsers local storage. You may also choose to extendWeb3 so that transactions made from accounts stored in browser, can be signed with the private key provided. EthereumJs-Accounts also supports account encryption using the AES encryption protocol. You may choose to optionally encrypt your Ethereum account data with a passphrase to prevent others from using or accessing your account.
+Welcome to happyucjs-accounts. Generate, encrypt, manage, export and remove HappyUC accounts and store them in your browsers local storage. You may also choose to extendWebu so that transactions made from accounts stored in browser, can be signed with the private key provided. HappyUCJs-Accounts also supports account encryption using the AES encryption protocol. You may choose to optionally encrypt your HappyUC account data with a passphrase to prevent others from using or accessing your account.
 
 Requires:
  - cryptojs v0.3.1  <https://github.com/fahad19/crypto-js>
  - localstorejs *  <https://github.com/SilentCicero/localstore>
- - ethereumjs-tx v0.4.0  <https://www.npmjs.com/package/ethereumjs-tx>
- - ethereumjs-tx v1.2.0  <https://www.npmjs.com/package/ethereumjs-util>
+ - happyucjs-tx v0.4.0  <https://www.npmjs.com/package/happyucjs-tx>
+ - happyucjs-tx v1.2.0  <https://www.npmjs.com/package/happyucjs-util>
  - Underscore.js v1.8.3+  <http://underscorejs.org/>
- - Web3.js v0.4.2+ <https://github.com/ethereum/web3.js>
+ - Webu.js v0.4.2+ <https://github.com/happyuc-project/webu.js>
 
 Commands:
     (Browserify)
-    browserify --s Accounts index.js -o dist/ethereumjs-accounts.js
+    browserify --s Accounts index.js -o dist/happyucjs-accounts.js
 
     (Run)
     node index.js
 
     (NPM)
-    npm install ethereumjs-accounts
+    npm install happyucjs-accounts
 
     (Meteor)
-    meteor install silentcicero:ethereumjs-accounts
+    meteor install silentcicero:happyucjs-accounts
 **/
 
 var _ = require('underscore');
-var Tx = require('ethereumjs-tx');
+var Tx = require('happyucjs-tx');
 var LocalStore = require('localstorejs');
 var BigNumber = require('bignumber.js');
 var JSZip = require("jszip");
@@ -39,7 +39,7 @@ require('browserify-cryptojs/components/cipher-core');
 require('browserify-cryptojs/components/aes');
 
 /**
-The Accounts constructor method. This method will construct the in browser Ethereum accounts manager.
+The Accounts constructor method. This method will construct the in browser HappyUC accounts manager.
 
 @class Accounts
 @constructor
@@ -53,11 +53,11 @@ var Accounts = module.exports = function(options){
 
     // setup default options
     var defaultOptions = {
-        varName: 'ethereumAccounts'
+        varName: 'happyucAccounts'
         , minPassphraseLength: 6
         , requirePassphrase: false
         , selectNew: true
-        , defaultGasPrice: 'useWeb3'
+        , defaultGasPrice: 'useWebu'
         , request: function(accountObject){
             var passphrase = prompt("Please enter your account passphrase for address " + accountObject.address.substr(0, 8) + '...', "passphrase");
 
@@ -119,12 +119,12 @@ var formatNumber = function(num){
 
 
 /**
-Prepair Ethereum address for either raw transactions or browser storage.
+Prepair HappyUC address for either raw transactions or browser storage.
 
 @method (formatAddress)
-@param {String} addr    An ethereum address to prep
+@param {String} addr    An happyuc address to prep
 @param {String} format          The format type (i.e. 'raw' or 'hex')
-@return {String} The prepaired ethereum address
+@return {String} The prepaired happyuc address
 **/
 
 var formatAddress = function(addr, format){
@@ -237,7 +237,7 @@ var defineProperties = function(context){
 Returns true when a valid passphrase is provided.
 
 @method (isPassphrase)
-@param {String} passphrase    A valid ethereum passphrase
+@param {String} passphrase    A valid happyuc passphrase
 @return {Boolean} Whether the passphrase is valid or invalid.
 **/
 
@@ -259,7 +259,7 @@ This will set in browser accounts data at a specified address with the specified
 **/
 
 Accounts.prototype.set = function(address, accountObject){
-    var accounts = LocalStore.get('ethereumAccounts');
+    var accounts = LocalStore.get('happyucAccounts');
 
     // if object, store; if null, delete
     if(_.isObject(accountObject))
@@ -274,7 +274,7 @@ Accounts.prototype.set = function(address, accountObject){
 
 
 /**
-Remove an account from the Ethereum accounts stored in browser
+Remove an account from the HappyUC accounts stored in browser
 
 @method (remove)
 @param {String} address          The address of the account stored in browser
@@ -286,7 +286,7 @@ Accounts.prototype.remove = function(address){
 
 
 /**
-Generate a new Ethereum account in browser with a passphrase that will encrypt the public and private keys with AES for storage.
+Generate a new HappyUC account in browser with a passphrase that will encrypt the public and private keys with AES for storage.
 
 @method (new)
 @param {String} passphrase          The passphrase to encrypt the public and private keys.
@@ -295,14 +295,14 @@ Generate a new Ethereum account in browser with a passphrase that will encrypt t
 
 Accounts.prototype.new = function(passphrase){
     var private = new Buffer(randomBytes(64), 'hex');
-    var public = ethUtil.privateToPublic(private);
+    var public = hucUtil.privateToPublic(private);
     var address = formatAddress(ethUtil.publicToAddress(public)
                                 .toString('hex'));
     var accountObject = {
         address: address
         , encrypted: false
         , locked: false
-        , hash: ethUtil.sha3(public.toString('hex') + private.toString('hex')).toString('hex')
+        , hash: hucUtil.sha3(public.toString('hex') + private.toString('hex')).toString('hex')
     };
 
     // if passphrrase provided or required, attempt account encryption
@@ -410,7 +410,7 @@ Accounts.prototype.get = function(address, passphrase){
 
 
 /**
-Clear all stored Ethereum accounts in browser.
+Clear all stored HappyUC accounts in browser.
 
 @method (clear)
 **/
@@ -510,7 +510,7 @@ Accounts.prototype.backup = function(){
 
 
 /**
-A log function that will log all actions that occur with ethereumjs-accounts.
+A log function that will log all actions that occur with happyucjs-accounts.
 
 @method (log)
 **/
@@ -526,7 +526,7 @@ Return all accounts as a list array.
 **/
 
 Accounts.prototype.list = function(){
-    var accounts = LocalStore.get('ethereumAccounts'),
+    var accounts = LocalStore.get('happyucAccounts'),
         return_array = [];
 
     _.each(_.keys(accounts), function(accountKey, accountIndex){
@@ -542,7 +542,7 @@ Accounts.prototype.list = function(){
 Alias for contains(), but asynchronous.
 
 This method is required to be a part of the transaction_signer specification for
-the HookedWeb3Provider.
+the HookedWebuProvider.
 
 @method (hasAddress)
 **/
@@ -558,9 +558,9 @@ If the from address is not registered as an in-browser account, signTransaction
 will respond with an error.
 
 This method is required to be a part of the transaction_signer specification for
-the HookedWeb3Provider.
+the HookedWebuProvider.
 
-tx_params should be an object passed directly from web3. All data should be hex
+tx_params should be an object passed directly from webu. All data should be hex
 and start with the prefix "0x". nonce is required.
 
 @method (signTransaction)

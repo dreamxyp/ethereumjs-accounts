@@ -1,19 +1,19 @@
 require=(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);var f=new Error("Cannot find module '"+o+"'");throw f.code="MODULE_NOT_FOUND",f}var l=n[o]={exports:{}};t[o][0].call(l.exports,function(e){var n=t[o][1][e];return s(n?n:e)},l,l.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file coder.js
@@ -291,20 +291,20 @@ module.exports = coder;
 
 },{"../utils/utils":7,"./formatters":2,"./param":3,"bignumber.js":"bignumber.js"}],2:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file formatters.js
@@ -542,20 +542,20 @@ module.exports = {
 
 },{"../utils/config":5,"../utils/utils":7,"./param":3,"bignumber.js":"bignumber.js"}],3:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file param.js
@@ -766,20 +766,20 @@ if (typeof XMLHttpRequest === 'undefined') {
 
 },{}],5:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file config.js
  * @authors:
@@ -800,45 +800,45 @@ if (typeof XMLHttpRequest === 'undefined') {
  * @constructor
  */
 
-/// required to define ETH_BIGNUMBER_ROUNDING_MODE
+/// required to define HUC_BIGNUMBER_ROUNDING_MODE
 var BigNumber = require('bignumber.js');
 
-var ETH_UNITS = [
+var HUC_UNITS = [
     'wei',
     'kwei',
     'Mwei',
     'Gwei',
     'szabo',
     'finney',
-    'femtoether',
-    'picoether',
-    'nanoether',
-    'microether',
-    'milliether',
+    'femtohuc',
+    'picohuc',
+    'nanohuc',
+    'microhuc',
+    'millihuc',
     'nano',
     'micro',
     'milli',
-    'ether',
+    'huc',
     'grand',
-    'Mether',
-    'Gether',
-    'Tether',
-    'Pether',
-    'Eether',
-    'Zether',
-    'Yether',
-    'Nether',
-    'Dether',
-    'Vether',
-    'Uether'
+    'Mhuc',
+    'Ghuc',
+    'Thuc',
+    'Phuc',
+    'Ehuc',
+    'Zhuc',
+    'Yhuc',
+    'Nhuc',
+    'Dhuc',
+    'Vhuc',
+    'Uhuc'
 ];
 
 module.exports = {
-    ETH_PADDING: 32,
-    ETH_SIGNATURE_LENGTH: 4,
-    ETH_UNITS: ETH_UNITS,
-    ETH_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
-    ETH_POLLING_TIMEOUT: 1000/2,
+    HUC_PADDING: 32,
+    HUC_SIGNATURE_LENGTH: 4,
+    HUC_UNITS: HUC_UNITS,
+    HUC_BIGNUMBER_ROUNDING_MODE: { ROUNDING_MODE: BigNumber.ROUND_DOWN },
+    HUC_POLLING_TIMEOUT: 1000/2,
     defaultBlock: 'latest',
     defaultAccount: undefined
 };
@@ -846,20 +846,20 @@ module.exports = {
 
 },{"bignumber.js":"bignumber.js"}],6:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file sha3.js
@@ -872,9 +872,9 @@ var sha3 = require('crypto-js/sha3');
 
 module.exports = function (str, isNew) {
     if (str.substr(0, 2) === '0x' && !isNew) {
-        console.warn('requirement of using web3.fromAscii before sha3 is deprecated');
-        console.warn('new usage: \'web3.sha3("hello")\'');
-        console.warn('see https://github.com/ethereum/web3.js/pull/205');
+        console.warn('requirement of using webu.fromAscii before sha3 is deprecated');
+        console.warn('new usage: \'webu.sha3("hello")\'');
+        console.warn('see https://github.com/happyuc-project/webu.js/pull/205');
         console.warn('if you need to hash hex value, you can do \'sha3("0xfff", true)\'');
         str = utils.toAscii(str);
     }
@@ -887,20 +887,20 @@ module.exports = function (str, isNew) {
 
 },{"./utils":7,"crypto-js/sha3":34}],7:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file utils.js
@@ -927,27 +927,27 @@ var unitMap = {
     'wei':          '1',
     'kwei':         '1000',
     'ada':          '1000',
-    'femtoether':   '1000',
+    'femtohuc':   '1000',
     'mwei':         '1000000',
     'babbage':      '1000000',
-    'picoether':    '1000000',
+    'picohuc':    '1000000',
     'gwei':         '1000000000',
     'shannon':      '1000000000',
-    'nanoether':    '1000000000',
+    'nanohuc':    '1000000000',
     'nano':         '1000000000',
     'szabo':        '1000000000000',
-    'microether':   '1000000000000',
+    'microhuc':   '1000000000000',
     'micro':        '1000000000000',
     'finney':       '1000000000000000',
-    'milliether':    '1000000000000000',
+    'millihuc':    '1000000000000000',
     'milli':         '1000000000000000',
-    'ether':        '1000000000000000000',
-    'kether':       '1000000000000000000000',
+    'huc':        '1000000000000000000',
+    'khuc':       '1000000000000000000000',
     'grand':        '1000000000000000000000',
     'einstein':     '1000000000000000000000',
-    'mether':       '1000000000000000000000000',
-    'gether':       '1000000000000000000000000000',
-    'tether':       '1000000000000000000000000000000'
+    'mhuc':       '1000000000000000000000000',
+    'ghuc':       '1000000000000000000000000000',
+    'thuc':       '1000000000000000000000000000000'
 };
 
 /**
@@ -1131,12 +1131,12 @@ var toHex = function (val) {
  * Returns value of unit in Wei
  *
  * @method getValueOfUnit
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default huc
  * @returns {BigNumber} value of the unit (in Wei)
  * @throws error if the unit is not correct:w
  */
 var getValueOfUnit = function (unit) {
-    unit = unit ? unit.toLowerCase() : 'ether';
+    unit = unit ? unit.toLowerCase() : 'huc';
     var unitValue = unitMap[unit];
     if (unitValue === undefined) {
         throw new Error('This unit doesn\'t exists, please use the one of the following units' + JSON.stringify(unitMap, null, 2));
@@ -1145,24 +1145,24 @@ var getValueOfUnit = function (unit) {
 };
 
 /**
- * Takes a number of wei and converts it to any other ether unit.
+ * Takes a number of wei and converts it to any other huc unit.
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     ada
- * - mwei       picoether      babbage
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    einstein     grand 
- * - mether
- * - gether
- * - tether
+ * - kwei       femtohuc     ada
+ * - mwei       picohuc      babbage
+ * - gwei       nanohuc      shannon      nano
+ * - --         microhuc     szabo        micro
+ * - --         millihuc     finney       milli
+ * - huc      --             --
+ * - khuc                    einstein     grand 
+ * - mhuc
+ * - ghuc
+ * - thuc
  *
  * @method fromWei
  * @param {Number|String} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert to, default ether
+ * @param {String} unit the unit to convert to, default huc
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var fromWei = function(number, unit) {
@@ -1176,20 +1176,20 @@ var fromWei = function(number, unit) {
  *
  * Possible units are:
  *   SI Short   SI Full        Effigy       Other
- * - kwei       femtoether     ada
- * - mwei       picoether      babbage       
- * - gwei       nanoether      shannon      nano
- * - --         microether     szabo        micro
- * - --         milliether     finney       milli
- * - ether      --             --
- * - kether                    einstein     grand 
- * - mether
- * - gether
- * - tether
+ * - kwei       femtohuc     ada
+ * - mwei       picohuc      babbage       
+ * - gwei       nanohuc      shannon      nano
+ * - --         microhuc     szabo        micro
+ * - --         millihuc     finney       milli
+ * - huc      --             --
+ * - khuc                    einstein     grand 
+ * - mhuc
+ * - ghuc
+ * - thuc
  *
  * @method toWei
  * @param {Number|String|BigNumber} number can be a number, number string or a HEX of a decimal
- * @param {String} unit the unit to convert from, default ether
+ * @param {String} unit the unit to convert from, default huc
  * @return {String|Object} When given a BigNumber object it returns one as well, otherwise a number
 */
 var toWei = function(number, unit) {
@@ -1359,7 +1359,7 @@ var isJson = function (str) {
 };
 
 /**
- * This method should be called to check if string is valid ethereum IBAN number
+ * This method should be called to check if string is valid happyuc IBAN number
  * Supports direct and indirect IBANs
  *
  * @method isIBAN
@@ -1406,22 +1406,22 @@ module.exports={
 
 },{}],9:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/** @file web3.js
+/** @file webu.js
  * @authors:
  *   Jeffrey Wilcke <jeff@ethdev.com>
  *   Marek Kotewicz <marek@ethdev.com>
@@ -1432,24 +1432,24 @@ module.exports={
  */
 
 var version = require('./version.json');
-var net = require('./web3/net');
-var eth = require('./web3/eth');
-var db = require('./web3/db');
-var shh = require('./web3/shh');
-var watches = require('./web3/watches');
-var Filter = require('./web3/filter');
+var net = require('./webu/net');
+var huc = require('./webu/eth');
+var db = require('./webu/db');
+var shh = require('./webu/shh');
+var watches = require('./webu/watches');
+var Filter = require('./webu/filter');
 var utils = require('./utils/utils');
-var formatters = require('./web3/formatters');
-var RequestManager = require('./web3/requestmanager');
+var formatters = require('./webu/formatters');
+var RequestManager = require('./webu/requestmanager');
 var c = require('./utils/config');
-var Property = require('./web3/property');
-var Batch = require('./web3/batch');
+var Property = require('./webu/property');
+var Batch = require('./webu/batch');
 var sha3 = require('./utils/sha3');
 
-var web3Properties = [
+var webuProperties = [
     new Property({
         name: 'version.client',
-        getter: 'web3_clientVersion'
+        getter: 'webu_clientVersion'
     }),
     new Property({
         name: 'version.network',
@@ -1457,8 +1457,8 @@ var web3Properties = [
         inputFormatter: utils.toDecimal
     }),
     new Property({
-        name: 'version.ethereum',
-        getter: 'eth_protocolVersion',
+        name: 'version.happyuc',
+        getter: 'huc_protocolVersion',
         inputFormatter: utils.toDecimal
     }),
     new Property({
@@ -1484,55 +1484,55 @@ var setupProperties = function (obj, properties) {
     });
 };
 
-/// setups web3 object, and it's in-browser executed methods
-var web3 = {};
-web3.providers = {};
-web3.currentProvider = null;
-web3.version = {};
-web3.version.api = version.version;
-web3.eth = {};
+/// setups webu object, and it's in-browser executed methods
+var webu = {};
+webu.providers = {};
+webu.currentProvider = null;
+webu.version = {};
+webu.version.api = version.version;
+webu.huc = {};
 
 /*jshint maxparams:4 */
-web3.eth.filter = function (fil, callback) {
-    return new Filter(fil, watches.eth(), formatters.outputLogFormatter, callback);
+webu.huc.filter = function (fil, callback) {
+    return new Filter(fil, watches.huc(), formatters.outputLogFormatter, callback);
 };
 /*jshint maxparams:3 */
 
-web3.shh = {};
-web3.shh.filter = function (fil, callback) {
+webu.shh = {};
+webu.shh.filter = function (fil, callback) {
     return new Filter(fil, watches.shh(), formatters.outputPostFormatter, callback);
 };
-web3.net = {};
-web3.db = {};
-web3.setProvider = function (provider) {
+webu.net = {};
+webu.db = {};
+webu.setProvider = function (provider) {
     this.currentProvider = provider;
     RequestManager.getInstance().setProvider(provider);
 };
-web3.isConnected = function(){
+webu.isConnected = function(){
      return (this.currentProvider && this.currentProvider.isConnected());
 };
-web3.reset = function () {
+webu.reset = function () {
     RequestManager.getInstance().reset();
     c.defaultBlock = 'latest';
     c.defaultAccount = undefined;
 };
-web3.toHex = utils.toHex;
-web3.toAscii = utils.toAscii;
-web3.fromAscii = utils.fromAscii;
-web3.toDecimal = utils.toDecimal;
-web3.fromDecimal = utils.fromDecimal;
-web3.toBigNumber = utils.toBigNumber;
-web3.toWei = utils.toWei;
-web3.fromWei = utils.fromWei;
-web3.isAddress = utils.isAddress;
-web3.isIBAN = utils.isIBAN;
-web3.sha3 = sha3;
-web3.createBatch = function () {
+webu.toHex = utils.toHex;
+webu.toAscii = utils.toAscii;
+webu.fromAscii = utils.fromAscii;
+webu.toDecimal = utils.toDecimal;
+webu.fromDecimal = utils.fromDecimal;
+webu.toBigNumber = utils.toBigNumber;
+webu.toWei = utils.toWei;
+webu.fromWei = utils.fromWei;
+webu.isAddress = utils.isAddress;
+webu.isIBAN = utils.isIBAN;
+webu.sha3 = sha3;
+webu.createBatch = function () {
     return new Batch();
 };
 
 // ADD defaultblock
-Object.defineProperty(web3.eth, 'defaultBlock', {
+Object.defineProperty(webu.huc, 'defaultBlock', {
     get: function () {
         return c.defaultBlock;
     },
@@ -1542,7 +1542,7 @@ Object.defineProperty(web3.eth, 'defaultBlock', {
     }
 });
 
-Object.defineProperty(web3.eth, 'defaultAccount', {
+Object.defineProperty(webu.huc, 'defaultAccount', {
     get: function () {
         return c.defaultAccount;
     },
@@ -1554,49 +1554,49 @@ Object.defineProperty(web3.eth, 'defaultAccount', {
 
 
 // EXTEND
-web3._extend = function(extension){
+webu._extend = function(extension){
     /*jshint maxcomplexity: 6 */
 
-    if(extension.property && !web3[extension.property])
-        web3[extension.property] = {};
+    if(extension.property && !webu[extension.property])
+        webu[extension.property] = {};
 
-    setupMethods(web3[extension.property] || web3, extension.methods || []);
-    setupProperties(web3[extension.property] || web3, extension.properties || []);
+    setupMethods(webu[extension.property] || webu, extension.methods || []);
+    setupProperties(webu[extension.property] || webu, extension.properties || []);
 };
-web3._extend.formatters = formatters;
-web3._extend.utils = utils;
-web3._extend.Method = require('./web3/method');
-web3._extend.Property = require('./web3/property');
+webu._extend.formatters = formatters;
+webu._extend.utils = utils;
+webu._extend.Method = require('./webu/method');
+webu._extend.Property = require('./webu/property');
 
 
 /// setups all api methods
-setupProperties(web3, web3Properties);
-setupMethods(web3.net, net.methods);
-setupProperties(web3.net, net.properties);
-setupMethods(web3.eth, eth.methods);
-setupProperties(web3.eth, eth.properties);
-setupMethods(web3.db, db.methods);
-setupMethods(web3.shh, shh.methods);
+setupProperties(webu, webuProperties);
+setupMethods(webu.net, net.methods);
+setupProperties(webu.net, net.properties);
+setupMethods(webu.huc, huc.methods);
+setupProperties(webu.huc, huc.properties);
+setupMethods(webu.db, db.methods);
+setupMethods(webu.shh, shh.methods);
 
-module.exports = web3;
+module.exports = webu;
 
 
-},{"./utils/config":5,"./utils/sha3":6,"./utils/utils":7,"./version.json":8,"./web3/batch":11,"./web3/db":13,"./web3/eth":15,"./web3/filter":17,"./web3/formatters":18,"./web3/method":24,"./web3/net":26,"./web3/property":27,"./web3/requestmanager":28,"./web3/shh":29,"./web3/watches":31}],10:[function(require,module,exports){
+},{"./utils/config":5,"./utils/sha3":6,"./utils/utils":7,"./version.json":8,"./webu/batch":11,"./webu/db":13,"./webu/eth":15,"./webu/filter":17,"./webu/formatters":18,"./webu/method":24,"./webu/net":26,"./webu/property":27,"./webu/requestmanager":28,"./webu/shh":29,"./webu/watches":31}],10:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file allevents.js
@@ -1652,7 +1652,7 @@ AllSolidityEvents.prototype.decode = function (data) {
 AllSolidityEvents.prototype.execute = function (options, callback) {
     var o = this.encode(options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, watches.eth(), formatter, callback);
+    return new Filter(o, watches.huc(), formatter, callback);
 };
 
 AllSolidityEvents.prototype.attachToContract = function (contract) {
@@ -1665,20 +1665,20 @@ module.exports = AllSolidityEvents;
 
 },{"../utils/sha3":6,"../utils/utils":7,"./event":16,"./filter":17,"./formatters":18,"./watches":31}],11:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file batch.js
@@ -1733,20 +1733,20 @@ module.exports = Batch;
 
 },{"./errors":14,"./jsonrpc":23,"./requestmanager":28}],12:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file contract.js
@@ -1754,7 +1754,7 @@ module.exports = Batch;
  * @date 2014
  */
 
-var web3 = require('../web3'); 
+var webu = require('../webu'); 
 var utils = require('../utils/utils');
 var coder = require('../solidity/coder');
 var SolidityEvent = require('./event');
@@ -1843,7 +1843,7 @@ var checkForContractAddress = function(contract, abi, callback){
         callbackFired = false;
 
     // wait for receipt
-    var filter = web3.eth.filter('latest', function(e){
+    var filter = webu.huc.filter('latest', function(e){
         if(!e && !callbackFired) {
             count++;
 
@@ -1863,10 +1863,10 @@ var checkForContractAddress = function(contract, abi, callback){
 
             } else {
 
-                web3.eth.getTransactionReceipt(contract.transactionHash, function(e, receipt){
+                webu.huc.getTransactionReceipt(contract.transactionHash, function(e, receipt){
                     if(receipt && !callbackFired) {
 
-                        web3.eth.getCode(receipt.contractAddress, function(e, code){
+                        webu.huc.getCode(receipt.contractAddress, function(e, code){
                             /*jshint maxcomplexity: 5 */
 
                             if(callbackFired)
@@ -1950,7 +1950,7 @@ ContractFactory.prototype.new = function () {
     if(callback) {
 
         // wait for the contract address adn check if the code was deployed
-        web3.eth.sendTransaction(options, function (err, hash) {
+        webu.huc.sendTransaction(options, function (err, hash) {
             if (err) {
                 callback(err);
             } else {
@@ -1964,7 +1964,7 @@ ContractFactory.prototype.new = function () {
             }
         });
     } else {
-        var hash = web3.eth.sendTransaction(options);
+        var hash = webu.huc.sendTransaction(options);
         // add the transaction hash
         contract.transactionHash = hash;
         checkForContractAddress(contract, _this.abi);
@@ -2010,22 +2010,22 @@ var Contract = function (abi, address) {
 module.exports = contract;
 
 
-},{"../solidity/coder":1,"../utils/utils":7,"../web3":9,"./allevents":10,"./event":16,"./function":19}],13:[function(require,module,exports){
+},{"../solidity/coder":1,"../utils/utils":7,"../webu":9,"./allevents":10,"./event":16,"./function":19}],13:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file db.js
  * @authors:
@@ -2070,20 +2070,20 @@ module.exports = {
 
 },{"./method":24}],14:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file errors.js
@@ -2110,36 +2110,36 @@ module.exports = {
 
 },{}],15:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
- * @file eth.js
+ * @file huc.js
  * @author Marek Kotewicz <marek@ethdev.com>
  * @author Fabian Vogelsteller <fabian@ethdev.com>
  * @date 2015
  */
 
 /**
- * Web3
+ * Webu
  *
- * @module web3
+ * @module webu
  */
 
 /**
- * Eth methods and properties
+ * Huc methods and properties
  *
  * An example method object can look as follows:
  *
@@ -2154,7 +2154,7 @@ module.exports = {
  *         ]
  *       },
  *
- * @class [web3] eth
+ * @class [webu] huc
  * @constructor
  */
 
@@ -2166,30 +2166,30 @@ var Method = require('./method');
 var Property = require('./property');
 
 var blockCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "eth_getBlockByHash" : "eth_getBlockByNumber";
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? "huc_getBlockByHash" : "huc_getBlockByNumber";
 };
 
 var transactionFromBlockCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getTransactionByBlockHashAndIndex' : 'eth_getTransactionByBlockNumberAndIndex';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'huc_getTransactionByBlockHashAndIndex' : 'huc_getTransactionByBlockNumberAndIndex';
 };
 
 var uncleCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleByBlockHashAndIndex' : 'eth_getUncleByBlockNumberAndIndex';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'huc_getUncleByBlockHashAndIndex' : 'huc_getUncleByBlockNumberAndIndex';
 };
 
 var getBlockTransactionCountCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getBlockTransactionCountByHash' : 'eth_getBlockTransactionCountByNumber';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'huc_getBlockTransactionCountByHash' : 'huc_getBlockTransactionCountByNumber';
 };
 
 var uncleCountCall = function (args) {
-    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'eth_getUncleCountByBlockHash' : 'eth_getUncleCountByBlockNumber';
+    return (utils.isString(args[0]) && args[0].indexOf('0x') === 0) ? 'huc_getUncleCountByBlockHash' : 'huc_getUncleCountByBlockNumber';
 };
 
-/// @returns an array of objects describing web3.eth api methods
+/// @returns an array of objects describing webu.huc api methods
 
 var getBalance = new Method({
     name: 'getBalance',
-    call: 'eth_getBalance',
+    call: 'huc_getBalance',
     params: 2,
     inputFormatter: [utils.toAddress, formatters.inputDefaultBlockNumberFormatter],
     outputFormatter: formatters.outputBigNumberFormatter
@@ -2197,14 +2197,14 @@ var getBalance = new Method({
 
 var getStorageAt = new Method({
     name: 'getStorageAt',
-    call: 'eth_getStorageAt',
+    call: 'huc_getStorageAt',
     params: 3,
     inputFormatter: [null, utils.toHex, formatters.inputDefaultBlockNumberFormatter]
 });
 
 var getCode = new Method({
     name: 'getCode',
-    call: 'eth_getCode',
+    call: 'huc_getCode',
     params: 2,
     inputFormatter: [utils.toAddress, formatters.inputDefaultBlockNumberFormatter]
 });
@@ -2228,7 +2228,7 @@ var getUncle = new Method({
 
 var getCompilers = new Method({
     name: 'getCompilers',
-    call: 'eth_getCompilers',
+    call: 'huc_getCompilers',
     params: 0
 });
 
@@ -2250,7 +2250,7 @@ var getBlockUncleCount = new Method({
 
 var getTransaction = new Method({
     name: 'getTransaction',
-    call: 'eth_getTransactionByHash',
+    call: 'huc_getTransactionByHash',
     params: 1,
     outputFormatter: formatters.outputTransactionFormatter
 });
@@ -2265,14 +2265,14 @@ var getTransactionFromBlock = new Method({
 
 var getTransactionReceipt = new Method({
     name: 'getTransactionReceipt',
-    call: 'eth_getTransactionReceipt',
+    call: 'huc_getTransactionReceipt',
     params: 1,
     outputFormatter: formatters.outputTransactionReceiptFormatter
 });
 
 var getTransactionCount = new Method({
     name: 'getTransactionCount',
-    call: 'eth_getTransactionCount',
+    call: 'huc_getTransactionCount',
     params: 2,
     inputFormatter: [null, formatters.inputDefaultBlockNumberFormatter],
     outputFormatter: utils.toDecimal
@@ -2280,28 +2280,28 @@ var getTransactionCount = new Method({
 
 var sendRawTransaction = new Method({
     name: 'sendRawTransaction',
-    call: 'eth_sendRawTransaction',
+    call: 'huc_sendRawTransaction',
     params: 1,
     inputFormatter: [null]
 });
 
 var sendTransaction = new Method({
     name: 'sendTransaction',
-    call: 'eth_sendTransaction',
+    call: 'huc_sendTransaction',
     params: 1,
     inputFormatter: [formatters.inputTransactionFormatter]
 });
 
 var call = new Method({
     name: 'call',
-    call: 'eth_call',
+    call: 'huc_call',
     params: 2,
     inputFormatter: [formatters.inputTransactionFormatter, formatters.inputDefaultBlockNumberFormatter]
 });
 
 var estimateGas = new Method({
     name: 'estimateGas',
-    call: 'eth_estimateGas',
+    call: 'huc_estimateGas',
     params: 1,
     inputFormatter: [formatters.inputTransactionFormatter],
     outputFormatter: utils.toDecimal
@@ -2309,31 +2309,31 @@ var estimateGas = new Method({
 
 var compileSolidity = new Method({
     name: 'compile.solidity',
-    call: 'eth_compileSolidity',
+    call: 'huc_compileSolidity',
     params: 1
 });
 
 var compileLLL = new Method({
     name: 'compile.lll',
-    call: 'eth_compileLLL',
+    call: 'huc_compileLLL',
     params: 1
 });
 
 var compileSerpent = new Method({
     name: 'compile.serpent',
-    call: 'eth_compileSerpent',
+    call: 'huc_compileSerpent',
     params: 1
 });
 
 var submitWork = new Method({
     name: 'submitWork',
-    call: 'eth_submitWork',
+    call: 'huc_submitWork',
     params: 3
 });
 
 var getWork = new Method({
     name: 'getWork',
-    call: 'eth_getWork',
+    call: 'huc_getWork',
     params: 0
 });
 
@@ -2361,36 +2361,36 @@ var methods = [
     getWork
 ];
 
-/// @returns an array of objects describing web3.eth api properties
+/// @returns an array of objects describing webu.huc api properties
 
 
 
 var properties = [
     new Property({
         name: 'coinbase',
-        getter: 'eth_coinbase'
+        getter: 'huc_coinbase'
     }),
     new Property({
         name: 'mining',
-        getter: 'eth_mining'
+        getter: 'huc_mining'
     }),
     new Property({
         name: 'hashrate',
-        getter: 'eth_hashrate',
+        getter: 'huc_hashrate',
         outputFormatter: utils.toDecimal
     }),
     new Property({
         name: 'gasPrice',
-        getter: 'eth_gasPrice',
+        getter: 'huc_gasPrice',
         outputFormatter: formatters.outputBigNumberFormatter
     }),
     new Property({
         name: 'accounts',
-        getter: 'eth_accounts'
+        getter: 'huc_accounts'
     }),
     new Property({
         name: 'blockNumber',
-        getter: 'eth_blockNumber',
+        getter: 'huc_blockNumber',
         outputFormatter: utils.toDecimal
     })
 ];
@@ -2403,20 +2403,20 @@ module.exports = {
 
 },{"../utils/utils":7,"./formatters":18,"./method":24,"./property":27}],16:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file event.js
@@ -2589,7 +2589,7 @@ SolidityEvent.prototype.execute = function (indexed, options, callback) {
     
     var o = this.encode(indexed, options);
     var formatter = this.decode.bind(this);
-    return new Filter(o, watches.eth(), formatter, callback);
+    return new Filter(o, watches.huc(), formatter, callback);
 };
 
 /**
@@ -2612,20 +2612,20 @@ module.exports = SolidityEvent;
 
 },{"../solidity/coder":1,"../utils/sha3":6,"../utils/utils":7,"./filter":17,"./formatters":18,"./watches":31}],17:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file filter.js
  * @authors:
@@ -2823,20 +2823,20 @@ module.exports = Filter;
 
 },{"../utils/utils":7,"./formatters":18,"./requestmanager":28}],18:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file formatters.js
@@ -3070,20 +3070,20 @@ module.exports = {
 
 },{"../utils/config":5,"../utils/utils":7}],19:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
  * @file function.js
@@ -3091,7 +3091,7 @@ module.exports = {
  * @date 2015
  */
 
-var web3 = require('../web3');
+var webu = require('../webu');
 var coder = require('../solidity/coder');
 var utils = require('../utils/utils');
 var formatters = require('./formatters');
@@ -3180,12 +3180,12 @@ SolidityFunction.prototype.call = function () {
 
 
     if (!callback) {
-        var output = web3.eth.call(payload, defaultBlock);
+        var output = webu.huc.call(payload, defaultBlock);
         return this.unpackOutput(output);
     } 
         
     var self = this;
-    web3.eth.call(payload, defaultBlock, function (error, output) {
+    webu.huc.call(payload, defaultBlock, function (error, output) {
         callback(error, self.unpackOutput(output));
     });
 };
@@ -3202,10 +3202,10 @@ SolidityFunction.prototype.sendTransaction = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return web3.eth.sendTransaction(payload);
+        return webu.huc.sendTransaction(payload);
     }
 
-    web3.eth.sendTransaction(payload, callback);
+    webu.huc.sendTransaction(payload, callback);
 };
 
 /**
@@ -3220,10 +3220,10 @@ SolidityFunction.prototype.estimateGas = function () {
     var payload = this.toPayload(args);
 
     if (!callback) {
-        return web3.eth.estimateGas(payload);
+        return webu.huc.estimateGas(payload);
     }
 
-    web3.eth.estimateGas(payload, callback);
+    webu.huc.estimateGas(payload, callback);
 };
 
 /**
@@ -3259,7 +3259,7 @@ SolidityFunction.prototype.request = function () {
     var format = this.unpackOutput.bind(this);
     
     return {
-        method: this._constant ? 'eth_call' : 'eth_sendTransaction',
+        method: this._constant ? 'huc_call' : 'huc_sendTransaction',
         callback: callback,
         params: [payload], 
         format: format
@@ -3305,22 +3305,22 @@ SolidityFunction.prototype.attachToContract = function (contract) {
 module.exports = SolidityFunction;
 
 
-},{"../solidity/coder":1,"../utils/sha3":6,"../utils/utils":7,"../web3":9,"./formatters":18}],20:[function(require,module,exports){
+},{"../solidity/coder":1,"../utils/sha3":6,"../utils/utils":7,"../webu":9,"./formatters":18}],20:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file httpprovider.js
  * @authors:
@@ -3420,20 +3420,20 @@ module.exports = HttpProvider;
 
 },{"./errors":14,"xmlhttprequest":4}],21:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file icap.js
@@ -3530,20 +3530,20 @@ module.exports = ICAP;
 
 },{"../utils/utils":7}],22:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file ipcprovider.js
  * @authors:
@@ -3743,20 +3743,20 @@ module.exports = IpcProvider;
 
 },{"../utils/utils":7,"./errors":14,"net":32}],23:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file jsonrpc.js
  * @authors:
@@ -3836,20 +3836,20 @@ module.exports = Jsonrpc;
 
 },{}],24:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
  * @file method.js
@@ -4010,20 +4010,20 @@ module.exports = Method;
 
 },{"../utils/utils":7,"./errors":14,"./requestmanager":28}],25:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file namereg.js
@@ -4058,22 +4058,22 @@ module.exports = contract(abi).at(address);
 
 },{"./contract":12}],26:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
-/** @file eth.js
+/** @file huc.js
  * @authors:
  *   Marek Kotewicz <marek@ethdev.com>
  * @date 2015
@@ -4082,11 +4082,11 @@ module.exports = contract(abi).at(address);
 var utils = require('../utils/utils');
 var Property = require('./property');
 
-/// @returns an array of objects describing web3.eth api methods
+/// @returns an array of objects describing webu.huc api methods
 var methods = [
 ];
 
-/// @returns an array of objects describing web3.eth api properties
+/// @returns an array of objects describing webu.huc api properties
 var properties = [
     new Property({
         name: 'listening',
@@ -4108,20 +4108,20 @@ module.exports = {
 
 },{"../utils/utils":7,"./property":27}],27:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /**
  * @file property.js
@@ -4260,20 +4260,20 @@ module.exports = Property;
 
 },{"../utils/utils":7,"./requestmanager":28}],28:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file requestmanager.js
@@ -4292,7 +4292,7 @@ var errors = require('./errors');
 
 /**
  * It's responsible for passing messages to providers
- * It's also responsible for polling the ethereum node for incoming messages
+ * It's also responsible for polling the happyuc node for incoming messages
  * Default poll timeout is 1 second
  * Singleton
  */
@@ -4525,20 +4525,20 @@ module.exports = RequestManager;
 
 },{"../utils/config":5,"../utils/utils":7,"./errors":14,"./jsonrpc":23}],29:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file shh.js
  * @authors:
@@ -4595,20 +4595,20 @@ module.exports = {
 
 },{"./formatters":18,"./method":24}],30:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** 
  * @file transfer.js
@@ -4616,7 +4616,7 @@ module.exports = {
  * @date 2015
  */
 
-var web3 = require('../web3');
+var webu = require('../webu');
 var ICAP = require('./icap');
 var namereg = require('./namereg');
 var contract = require('./contract');
@@ -4661,7 +4661,7 @@ var transfer = function (from, iban, value, callback) {
  * @param {Function} callback, callback
  */
 var transferToAddress = function (from, address, value, callback) {
-    return web3.eth.sendTransaction({
+    return webu.huc.sendTransaction({
         address: address,
         from: from,
         value: value
@@ -4689,22 +4689,22 @@ var deposit = function (from, address, value, client, callback) {
 module.exports = transfer;
 
 
-},{"../web3":9,"./contract":12,"./icap":21,"./namereg":25}],31:[function(require,module,exports){
+},{"../webu":9,"./contract":12,"./icap":21,"./namereg":25}],31:[function(require,module,exports){
 /*
-    This file is part of ethereum.js.
+    This file is part of happyuc.js.
 
-    ethereum.js is free software: you can redistribute it and/or modify
+    happyuc.js is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
-    ethereum.js is distributed in the hope that it will be useful,
+    happyuc.js is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
     GNU Lesser General Public License for more details.
 
     You should have received a copy of the GNU Lesser General Public License
-    along with ethereum.js.  If not, see <http://www.gnu.org/licenses/>.
+    along with happyuc.js.  If not, see <http://www.gnu.org/licenses/>.
 */
 /** @file watches.js
  * @authors:
@@ -4714,8 +4714,8 @@ module.exports = transfer;
 
 var Method = require('./method');
 
-/// @returns an array of objects describing web3.eth.filter api methods
-var eth = function () {
+/// @returns an array of objects describing webu.huc.filter api methods
+var huc = function () {
     var newFilterCall = function (args) {
         var type = args[0];
 
@@ -4723,13 +4723,13 @@ var eth = function () {
             case 'latest':
                 args.shift();
                 this.params = 0;
-                return 'eth_newBlockFilter';
+                return 'huc_newBlockFilter';
             case 'pending':
                 args.shift();
                 this.params = 0;
-                return 'eth_newPendingTransactionFilter';
+                return 'huc_newPendingTransactionFilter';
             default:
-                return 'eth_newFilter';
+                return 'huc_newFilter';
         }
     };
 
@@ -4741,19 +4741,19 @@ var eth = function () {
 
     var uninstallFilter = new Method({
         name: 'uninstallFilter',
-        call: 'eth_uninstallFilter',
+        call: 'huc_uninstallFilter',
         params: 1
     });
 
     var getLogs = new Method({
         name: 'getLogs',
-        call: 'eth_getFilterLogs',
+        call: 'huc_getFilterLogs',
         params: 1
     });
 
     var poll = new Method({
         name: 'poll',
-        call: 'eth_getFilterChanges',
+        call: 'huc_getFilterChanges',
         params: 1
     });
 
@@ -4765,7 +4765,7 @@ var eth = function () {
     ];
 };
 
-/// @returns an array of objects describing web3.shh.watch api methods
+/// @returns an array of objects describing webu.shh.watch api methods
 var shh = function () {
     var newFilter = new Method({
         name: 'newFilter',
@@ -4800,7 +4800,7 @@ var shh = function () {
 };
 
 module.exports = {
-    eth: eth,
+    huc: huc,
     shh: shh
 };
 
@@ -8864,23 +8864,23 @@ module.exports = {
     }
 })(this);
 
-},{"crypto":32}],"web3":[function(require,module,exports){
-var web3 = require('./lib/web3');
+},{"crypto":32}],"webu":[function(require,module,exports){
+var webu = require('./lib/webu');
 
-web3.providers.HttpProvider = require('./lib/web3/httpprovider');
-web3.providers.IpcProvider = require('./lib/web3/ipcprovider');
+webu.providers.HttpProvider = require('./lib/webu/httpprovider');
+webu.providers.IpcProvider = require('./lib/webu/ipcprovider');
 
-web3.eth.contract = require('./lib/web3/contract');
-web3.eth.namereg = require('./lib/web3/namereg');
-web3.eth.sendIBANTransaction = require('./lib/web3/transfer');
+webu.huc.contract = require('./lib/webu/contract');
+webu.huc.namereg = require('./lib/webu/namereg');
+webu.huc.sendIBANTransaction = require('./lib/webu/transfer');
 
 // dont override global variable
-if (typeof window !== 'undefined' && typeof window.web3 === 'undefined') {
-    window.web3 = web3;
+if (typeof window !== 'undefined' && typeof window.webu === 'undefined') {
+    window.webu = webu;
 }
 
-module.exports = web3;
+module.exports = webu;
 
 
-},{"./lib/web3":9,"./lib/web3/contract":12,"./lib/web3/httpprovider":20,"./lib/web3/ipcprovider":22,"./lib/web3/namereg":25,"./lib/web3/transfer":30}]},{},["web3"])
-//# sourceMappingURL=web3.js.map
+},{"./lib/webu":9,"./lib/webu/contract":12,"./lib/webu/httpprovider":20,"./lib/webu/ipcprovider":22,"./lib/webu/namereg":25,"./lib/webu/transfer":30}]},{},["webu"])
+//# sourceMappingURL=webu.js.map
