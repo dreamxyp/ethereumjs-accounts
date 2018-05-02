@@ -23,7 +23,8 @@
   "dependencies": {
     "bignumber.js": "^2.0.7",
     "browserify-cryptojs": "^0.3.1",
-    "happyucjs-tx": "^0.4.0",
+    // "happyucjs-tx": "/Users/dreamxyp/Transcend/happyuc-js/tx/",
+    "happyucjs-tx": "https://github.com/happyucjs/happyucjs-tx.git",
     "jszip": "^2.5.0",
     "localstorejs": "^0.1.9",
     "node-safe-filesaver": "^0.1.0",
