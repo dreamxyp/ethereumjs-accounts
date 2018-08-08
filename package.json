@@ -3,9 +3,7 @@
   "version": "0.0.1",
   "description": "A simple module for creating and managing irchain accounts in browser.",
   "main": "index.js",
-  "scripts": {
-    "test": "test"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/icjs/icjs-accounts.git"
@@ -23,7 +21,7 @@
   "dependencies": {
     "bignumber.js": "^2.0.7",
     "browserify-cryptojs": "^0.3.1",
-    "icjs-tx": "git+https://github.com/icjs/icjs-tx.git",
+    "icjs-tx": "^0.0.2",
     "jszip": "^2.5.0",
     "localstorejs": "^0.1.9",
     "node-safe-filesaver": "^0.1.0",
@@ -32,5 +30,6 @@
   "homepage": "https://github.com/icjs/icjs-accounts#readme",
   "directories": {
     "example": "examples"
-  }
+  },
+  "devDependencies": {}
 }
